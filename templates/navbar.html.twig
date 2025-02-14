@@ -15,14 +15,20 @@
                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
              </div>
             <div class="modal-body">
-                 {% include "form/createForm.html.twig" %}
+                <!-- Form include -->
+                 {% include "form/createForm.html.twig" with {'form_task' : form_task} %} <!-- send variable -->
              </div>
          </div>
      </div>
  </div>
 
 <!-- AJAX for load form -->
-<!-- permet de ne pas charger lors du chargement de la page mais seulement quand on as besoin
- Pour une TO-DO list c'est pertinent car besoin d'être assez réactive et ne pas recharger une page quand on créé une nouvelle tâche
- mise à jour en temps réel -->
+<script>
+    fetch('createForm.php', {
+        method: 'post',
+        body: data,
+    })
+    .then(result => result.json())
+    .then(console.log, console.error)
+</script>
 
