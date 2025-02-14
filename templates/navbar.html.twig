@@ -1,0 +1,28 @@
+{% set task = tasks|first ?: {'id' : 0} %}
+<div class="navbar navbar-expand bg-black">
+     <div class="container-fluid">
+         <a class="navbar-brand text-light">TO-DO</a>
+         <!-- Modal button -->
+         <button class="btn btn-primary" type="button" href="" data-bs-toggle="modal" data-bs-target="#createTask" data-whatever="{{ task.id }}">Nouvelle tâche</button>
+     </div>
+ </div>
+ <!-- Modal -->
+ <div class="modal fade" id="createTask" tabindex="-1" aria-labelleby="createModalLabel" aria-label="true">
+     <div class="modal-dialog">
+         <div class="modal-content bg-black text-light" >
+             <div class="modal-header" data-bs-theme="dark">
+                 <h4 class="modal-title">Création d'une nouvelle tâche</h4>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+            <div class="modal-body">
+                 {% include "form/createForm.html.twig" %}
+             </div>
+         </div>
+     </div>
+ </div>
+
+<!-- AJAX for load form -->
+<!-- permet de ne pas charger lors du chargement de la page mais seulement quand on as besoin
+ Pour une TO-DO list c'est pertinent car besoin d'être assez réactive et ne pas recharger une page quand on créé une nouvelle tâche
+ mise à jour en temps réel -->
+

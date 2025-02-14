@@ -1,0 +1,30 @@
+{% include 'base.html.twig' %}
+{% include 'navbar.html.twig' %}
+<!-- Tasks presentation -->
+    <div class="container">
+        <div class="row">
+            {% for task in tasks %}
+                {% if task.status.id == 1 %}
+                    <div class="col-4 bg-dark-subtle">
+                            <h3>A Faire</h3>
+                            <h3>{{ task.title }}</h3>
+                            <p>{{ task.description }}</p>
+                    </div>
+                {% endif %}
+                {% if task.status.id == 2 %}
+                    <div class="col-4 bg-dark-subtle">
+                            <h3>En cour</h3>
+                            <h3>{{ task.title }}</h3>
+                            <p>{{ task.description }}</p>
+                    </div>
+                {% endif %}
+                {% if task.status.id == 3 %}
+                    <div class="col-4 bg-dark-subtle">
+                            <h3>Fini</h3>
+                            <h3>{{ task.title }}</h3>
+                            <p>{{ task.description }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>

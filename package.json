@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "sass": "^1.84.0"
+  },
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^5.0.1",
+    "webpack-notifier": "^1.15.0"
+  }
+}
